@@ -1,0 +1,139 @@
+/* ============
+ * Main Stylesheet
+ * ============
+ *
+ * Used for the global application styling.
+ *
+ * The stylus CSS-preprocessor is used for this boilerplate.
+ * If you don't want to use Stylus, that's fine!
+ * Replace the stylus directory with the CSS preprocessor you want.
+ * Require the stylesheet in the bootstrap.js file & install the webpack loader.
+ *
+ * It's that easy...
+ *
+ * http://stylus-lang.com/
+ */
+
+//@require 'element-ui/lib/theme-chalk/index.css'
+
+@import './base'
+@import './helpers'
+
+body{
+  margin: 0;
+}
+a:hover{
+  cursor:pointer;
+}
+.loginBox{
+  max-height: 85%;
+  width 500px;
+  background: #fff;
+  padding: 41px;
+  border-radius: 12px;
+  -webkit-box-shadow: inset 0px 0px 46px 0px #8295ad;
+  -moz-box-shadow: inset 0px 0px 46px 0px #8295ad;
+  box-shadow: inset 0px 0px 46px 0px #8295ad;
+  }
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  background-image: url('../images/pattern1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+
+.login
+  display: block
+  text-align: center
+
+a.buttons_login button{
+  font-size: 1.5rem;
+  font-weight: 200;
+  background:#86c543;
+  color:#FFF;
+  border:0px;
+  font-family: 'Roboto', sans-serif;
+  padding:15px 40px;
+
+  display:inline-block;
+
+}
+a.buttons_login:hover button{
+  background:#2a2a2a;
+  color:#FFF;
+}
+
+.loginBox,.registerBox{
+  background:#FFF;
+  border-radius:5px;
+  padding:30px;
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    height:50px;
+    border:1px solid #ccc;
+    display:block;
+    width:100%;
+    &:hover{
+      border-color:#86c543;
+    }
+  }
+  input[type="submit"]{
+    background:#86c543;
+    color:#FFF;
+    height:50px;
+    cursor:pointer;
+    font-size:16px;
+    margin:10px auto;
+    text-align:center;
+    float:center;
+    &:hover{
+      background:#2a2a2a;
+    }
+  }
+  h3{
+    font-family: 'Roboto', sans-serif;
+    font-weight:normal;
+    font-weight:100;
+    font-size: 1.5rem;
+  }
+}
+.forgot-password{
+  font-size:12px;
+  text-align:right;
+  display:block;
+  color:#a2a2a2;
+  a{
+    color:#a2a2a2;
+    text-decoration:none;
+    &:hover{
+      color:#2a2a2a;
+    }
+  }
+}
+
+
+
+  .user-details .userType{
+  	float:left;
+  	margin-top:10px;
+  }
+
+.listsClients{
+	padding-left: 6px;
+	padding-right: 6px;
+	margin-bottom: 6.8px;
+}
+
+.listsClients .el-card{
+	height: 140px;
+	width: 100%;
+	-webkit-transition-property: all; /* Safari */
+	-webkit-transition-duration: transition-time; /* Safari */
+	transition-property: all;
+	transition-duration: transition-time;
+}
+

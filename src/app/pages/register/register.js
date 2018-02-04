@@ -13,7 +13,7 @@ import Vform from './../../components/form/form.vue';
 export default { 
     data() {
         return {
-            form: new Form({
+            form_user: new Form({
                 first_name: {
                     value: '',
                     type: 'text'
@@ -39,40 +39,88 @@ export default {
                     type: 'password'
                 },
             }),
-            driverRows: {
-                color: 'string'
-            },
+            forms_car:[],
+            form_car: new Form({
+                color:{ 
+                    value: '',
+                    type: 'text'
+                },
+                reg_number:{ 
+                    value: '',
+                    type: 'text'
+                },
+                year:{ 
+                    value: '',
+                    type: 'text'
+                },
+                brand:{ 
+                    value: '',
+                    type: 'text'
+                },
+                model:{ 
+                    value: '',
+                    type: 'text'
+                },
+                currency:{ 
+                    value: '',
+                    type: 'text'
+                },
+                planting_costs:{ 
+                    value: '',
+                    type: 'text'
+                },
+                costs_per_1:{ 
+                    value: '',
+                    type: 'text'
+                },
+                car_photo:{ 
+                    value: '',
+                    type: 'image'
+                },
+
+            }),
             countries: [
             { id: '1', name: 'Ukraine' },
              { id: '2', name: 'Bangladesh' }, 
-            ]
+            ],
+            loading:false,
         }
     },
+    watch:{
+        'form_car.year' () {
+            setTimeout(()=>{
+                this.form_car.year = this.form_car.year.replace(/^\D/g,'');           
+            },50);
+        }   
+    },
+
     methods: {
         register() { 
-            this.form.loading = true; 
-            console.log(this.form.data());
-            Auth.registerUser(this.form.data())
+            this.loading = true;
+           let data = Object.assign(this.form_user.data(), this.form_car.data())
+            console.log(data);
+            Auth.register(data)
                 .then(() => {
+                    this.loading = false;
                     // Vue.router.push({
                     //     name: 'home'
                     // });
                 })
                 .catch((errors) => {
                     console.log(errors, ' errors register');
-                    this.form.loading = false;
+                    this.loading = false;
                     this.form.recordErrors(errors);
-                })
+                });
+            ;
+
         },
 
         addDriverRows() {
-            this.form.fields = Object.assign(this.form.fields, this.driverRows);
-           this.form.color = '';
-            console.log(this.form);
+            this.forms_car.push(this.form_car);
         }
     },
     created() {
-        this.form.setOptions('country', this.countries.map(
+        this.form_user.setOptions('country', this.countries.map(
             c => (
              { id: c.id, name: c.name }
             )));

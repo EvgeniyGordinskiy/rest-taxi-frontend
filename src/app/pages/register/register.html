@@ -1,11 +1,26 @@
 <div class="content login-wrapper">
 	<div class="content-inner loginBox">
+
 		<Vform
-				:save.sync="register"
-				:form="form"
-				btn-text="Register"
+				:form="form_user"
 		>
 		</Vform>
+		<h2 v-if="forms_car.length > 0">
+			Register driver car
+		</h2>
+		<template v-if="forms_car.length > 0" v-for="form_car in forms_car">
+		<Vform
+				:form="form_car"
+		>
+		</Vform>
+		</template>
+	
+		<el-button  
+			type="primary"
+			:loading="loading"
+			 @click="register">
+		Register
+		</el-button>	
 		<div>
 			<a @click="addDriverRows">I also want be a driver </a>
 		</div>

@@ -1,5 +1,5 @@
-<div class="content login-wrapper">
-	<div class="content-inner loginBox">
+<div class="content auth-wrapper">
+	<div class="content-inner authBox">
 
 		<Vform
 				:form="form_user"
@@ -8,7 +8,11 @@
 		<h2 v-if="forms_car.length > 0">
 			Register driver car
 		</h2>
-		<template v-if="forms_car.length > 0" v-for="form_car in forms_car">
+		<template v-if="forms_car.length > 0" v-for="(form_car, index) in forms_car">
+		<i  class="el-icon-error" @click="deleteFormCar(index)">
+		</i>
+		<br>
+		<br>
 		<Vform
 				:form="form_car"
 		>
@@ -21,8 +25,10 @@
 			 @click="register">
 		Register
 		</el-button>	
-		<div>
-			<a @click="addDriverRows">I also want be a driver </a>
+		<br>
+		<br>
+		<div v-if="forms_car.length == 0">
+			<el-button type="info" @click="addDriverRows">I also want be a driver </el-button>
 		</div>
 	</div>
 </div>

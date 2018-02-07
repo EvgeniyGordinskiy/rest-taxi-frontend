@@ -25,19 +25,11 @@ body{
 a:hover{
   cursor:pointer;
 }
-.loginBox{
-  max-height: 85%;
-  width 500px;
-  background: #fff;
-  padding: 41px;
-  border-radius: 12px;
-  overflow: auto;
-  -webkit-box-shadow: inset 0px 0px 46px 0px #8295ad;
-  -moz-box-shadow: inset 0px 0px 46px 0px #8295ad;
-  box-shadow: inset 0px 0px 46px 0px #8295ad;
+.authBox{
+
   }
 
-.login-wrapper {
+.auth-wrapper {
   display: flex;
   justify-content: center;
   align-items: center ;
@@ -58,22 +50,24 @@ a.buttons_login button{
   border:0px;
   font-family: 'Roboto', sans-serif;
   padding:15px 40px;
-
   display:inline-block;
-
 }
 a.buttons_login:hover button{
   background:#2a2a2a;
   color:#FFF;
 }
 
-.loginBox,.registerBox{
-  background:#FFF;
+.authBox{
+  background: #FFF;
   border-radius:5px;
-  padding:30px;
-  input[type="text"],
-  input[type="email"],
-  input[type="password"]{
+  max-height: 85%;
+  width 500px;
+  padding: 41px;
+  overflow: auto;
+  -webkit-box-shadow: inset 0px 0px 46px 0px #8295ad;
+  -moz-box-shadow: inset 0px 0px 46px 0px #8295ad;
+  box-shadow: inset 0px 0px 46px 0px #8295ad;
+  input[type="text"], input[type="email"],  input[type="password"]{
     height:50px;
     border:1px solid #ccc;
     display:block;

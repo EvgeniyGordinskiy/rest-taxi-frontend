@@ -109,7 +109,10 @@ export default {
                 .catch((errors) => {
                     console.log(errors, ' errors register');
                     this.loading = false;
-                    this.form.recordErrors(errors);
+                    this.form_user.recordErrors(errors);
+                    forms_car.forEach((form) => {
+                        form.recordErrors(errors);    
+                    });
                 });
             ;
 
@@ -117,7 +120,10 @@ export default {
 
         addDriverRows() {
             this.forms_car.push(this.form_car);
-        }
+        },
+        deleteFormCar(index) {
+            this.forms_car.splice(index,1);
+        },
     },
     created() {
         this.form_user.setOptions('country', this.countries.map(

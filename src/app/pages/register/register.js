@@ -97,7 +97,10 @@ export default {
     methods: {
         register() { 
             this.loading = true;
-           let data = Object.assign(this.form_user.data(), this.form_car.data())
+             let data = this.form_user.data();
+             if(this.form_car.length > 0) {
+                data.driver = this.form_car.data();     
+             }
             console.log(data);
             Auth.register(data)
                 .then(() => {
@@ -110,7 +113,7 @@ export default {
                     console.log(errors, ' errors register');
                     this.loading = false;
                     this.form_user.recordErrors(errors);
-                    forms_car.forEach((form) => {
+                    this.forms_car.forEach((form) => {
                         form.recordErrors(errors);    
                     });
                 });

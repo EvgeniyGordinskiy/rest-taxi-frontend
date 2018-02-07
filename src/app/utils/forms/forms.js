@@ -151,7 +151,7 @@ export default class Forms {
     validKeys.forEach((key) => {
       validErrors[key] = errors[key];
     });
-
+    console.log(validErrors);
     this.errors.record(validErrors);
   }
 

@@ -20,6 +20,7 @@ export default class AccountSetupTransformer extends Transformer {
       first_name: accountSetup.firstName,
       last_name: accountSetup.lastName,
       phone: accountSetup.phone,
+      country: accountSetup.country,
       password: accountSetup.password,
       passwordConfirm: accountSetup.password_confirm,
     };
